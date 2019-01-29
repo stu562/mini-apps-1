@@ -1,8 +1,8 @@
 lets build a multi check out experience 
 [] use express to serve up index 
     [] link transpile component, DONT use webpack
-    [] Bable for - client side
-    [] Nodemon for server side
+    [x] Bable for - client side
+    [x] Nodemon for server side
 
 [] build ui using React all in app.jsx one file
     [] Create Next button - to guide the user through F1 to F3
