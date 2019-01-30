@@ -5,11 +5,11 @@ const parser = require('body-parser');
 
 //build a server on a page
     // require and module.exports are for server set up 
-//controller
+//controller [x]
     //get , post, delete
 //routes
     //tell what 
-//index 
+//index [x]
     //houses middleware,  port
 
 //middleware
@@ -48,10 +48,29 @@ module.exports = { //promise format
             price = price
         })
         .then((data) => {
-            res.send(200).send(data);
+            res.send(201).send(data);
         })
         .catch((err) => {
             res.status(404).send(err);
         })
+    },
+    delete: (req, res) => {
+        const { index } = req.query;
+        db.shopping.destory({where: { id: index}})
+            .then((data)=>{
+                res.status(202).send(data);
+            })
+            .catch((err)=> {
+                res.status(404).send(err);
+            })
+    
     }
 }
+
+//routes how do i use my router here? 
+routes
+    .route()//
+    .get()
+    .post()
+    .delete()
+    
