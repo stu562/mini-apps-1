@@ -11,8 +11,9 @@ const Info = sequelize.define('userinfo', {
   line2: Sequelize.STRING,
   city: Sequelize.STRING,
   zip: Sequelize.STRING,
-  code: Sequelize.STRING,
 })
 
-sequelize.sync();
+sequelize.sync()
+  // .then(() => Info.create())
+  // .catch((err) => console.log(err))
 module.exports = Info;//ready to ship off info

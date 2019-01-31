@@ -1,16 +1,16 @@
 const Info = require('./schema.js');
 
 //create a new user 
-const createUser = (name) => {
-  return Info.create({ name });
+const createUser = (name, email) => {
+  return Info.create({ name, email });
 }
 
 //if we need to find a user 
-// const findUser = () => {
-//   return Item.findAll({});
-// }
+const getUser = () => {
+  return Info.findAll({});
+}
 
 module.exports = {
   createUser,
-  // findUser
+  getUser
 }
