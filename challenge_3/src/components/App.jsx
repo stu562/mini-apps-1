@@ -34,10 +34,10 @@ class App extends React.Component {
     this.setState({
       marker: 'form1',
     });
-    // axios
-    //   .post('/shopping', this.state)
-    //   .then((response) => console.log(response))
-    //   .catch(err => console.error(err));
+    axios
+      .post('/shopping', this.state)
+      .then((response) => console.log(response))
+      .catch(err => console.error(err));
   }
   handleNextForm2() {
     this.setState({
@@ -47,7 +47,7 @@ class App extends React.Component {
     //   .post('/shopping', this.state)
     //   .then((response) => console.log(response))
     //   .catch(err => console.error(err));
-    //needs to send request to database
+    //needs to send post request
   }
   handleNextForm3() {
     this.setState({
@@ -79,7 +79,7 @@ class App extends React.Component {
       return (
         <div> <h1>React Wants your info, yo!</h1>
           <form>
-            <h3>{this.state.name}</h3>
+            {/* <h3>{this.state.name}</h3> */}
             {/* just to test if  working */}
             <label> Name </label>
             <input type="text" name="name" onChange={this.handleChange}/><br />
@@ -148,7 +148,7 @@ class App extends React.Component {
           <button type="button" onClick={()=> {
           this.handleNextForm1();
           this.render();
-        }}>Purchase</button>
+        }}>Confirm Purchase</button>
         </div>
       );
 

@@ -11,6 +11,10 @@ const Info = sequelize.define('userinfo', {
   line2: Sequelize.STRING,
   city: Sequelize.STRING,
   zip: Sequelize.STRING,
+  creditNumber: Sequelize.STRING,
+  expiry: Sequelize.STRING,
+  cvv: Sequelize.STRING,
+  billingZip:'',
 })
 
 sequelize.sync()
