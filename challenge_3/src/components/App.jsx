@@ -22,33 +22,56 @@ class App extends React.Component {
     this.handleNextForm1 = this.handleNextForm1.bind(this);
     this.handleNextForm2 = this.handleNextForm2.bind(this);
     this.handleNextForm3 = this.handleNextForm3.bind(this);
+    this.handleNextFormFinal = this.handleNextFormFinal.bind(this);
     // this.handleToggleClick = this.handleToggleClick.bind(this);
   }
 
   handleChange (e) {
     this.setState({ [e.target.name]: e.target.value });
-    // () => console.log(this.state.name)
+    console.log(e.target.name, e.target.value);
   }
-  handleNextForm1(e) {
-    // e.preventDefault();
+  handleNextForm1() {
     this.setState({
       marker: 'form1',
     });
-    // render();
+    // axios
+    //   .post('/shopping', this.state)
+    //   .then((response) => console.log(response))
+    //   .catch(err => console.error(err));
   }
-  handleNextForm2(e) {
-    e.preventDefault();
+  handleNextForm2() {
     this.setState({
       marker: 'form2',
     });
+    // axios
+    //   .post('/shopping', this.state)
+    //   .then((response) => console.log(response))
+    //   .catch(err => console.error(err));
+    //needs to send request to database
   }
-  handleNextForm3(e) {
-    e.preventDefault();
+  handleNextForm3() {
     this.setState({
       marker: 'form3',
     });
+    // axios
+    //   .post('/shopping', this.state)
+    //   .then((response) => console.log(response))
+    //   .catch(err => console.error(err));
+    //needs to send data to database
   }
+  handleNextFormFinal() {
+    this.setState({
+      marker: 'formFinal',
+    });
+    // axios
+    //   .post('/shopping', this.state)
+    //   .then((response) => console.log(response))
+    //   .catch(err => console.error(err));
+    //needs to send data to database
+  }
+  // handleCheckout(){
 
+  // }
   
 
   render() {
@@ -87,12 +110,12 @@ class App extends React.Component {
       </form>
       </div>
       );
-    } else {
+    } else if (this.state.marker === 'form3') {
       return (
       <div>
         <form >
           <label> Credit Card Number </label>
-          <input type="text" name="creditNumber" onChange={this.handleChange} /><br />
+          <input type="text"  name="creditNumber" onChange={this.handleChange} /><br />
           <label> Expiration Date </label>
           <input type="text" name="expiry" onChange={this.handleChange} /><br />
           <label> CVV </label>
@@ -100,15 +123,36 @@ class App extends React.Component {
           <label> Billing Zip </label>
           <input type="text" name="billingZip" onChange={this.handleChange} /><br />
           <button type="button" onClick={this.handleNextForm2}>Back</button>
-        <button type="button" onClick={() => console.log('Check out page please')} >Check Out</button>
-        <button type="button" onClick={()=> {
-          this.handleNextForm1();
-          this.render();
-        }}>Purchase</button>
+        <button type="button" onClick={this.handleNextFormFinal} >Check Out</button>
+        
         </form>
   
       </div>
+        );
+    } else if (this.state.marker === 'formFinal') {
+      return (
+        <div>
+          <form >
+            <label> Name: {this.state.name} </label><br />
+            <label> Email: {this.state.email} </label><br />
+            <label> Password: {this.state.password} </label><br />
+            <label> Line1: {this.state.line1} </label><br />
+            <label> Line2: {this.state.line2} </label><br />
+            <label> City: {this.state.city} </label><br />
+            <label> Zip: {this.state.zip} </label><br />
+            <label> Credit Card Number: {this.state.creditNumber} </label><br />
+            <label> Exp Date: {this.state.expiry} </label><br />
+            <label> CVV {this.state.cvv} </label><br />
+            <label> Billing Zip {this.state.billingZip} </label><br />
+          </form>
+          <button type="button" onClick={()=> {
+          this.handleNextForm1();
+          this.render();
+        }}>Purchase</button>
+        </div>
       );
+
+
     }
   } 
 }
